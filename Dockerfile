@@ -17,7 +17,7 @@ LABEL io.k8s.description="S2I for .net core" \
 
 COPY ./.s2i/ /usr/libexec/s2i
 
-RUN yum install libunwind libicu
+RUN yum -y install libunwind libicu
 
 RUN mkdir -p /dotnet && chmod 777 /usr/libexec/s2i/*  && chmod 777 /dotnet
 
