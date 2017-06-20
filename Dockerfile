@@ -17,7 +17,7 @@ LABEL io.k8s.description="S2I for .net core" \
 
 COPY ./.s2i/ /usr/libexec/s2i
 
-RUN chmod -r 777 /usr/libexec/s2i/
+RUN chmod 777 /usr/libexec/s2i/*
 
 COPY dotnet-centos-x64.1.1.2.tar.gz /
 
