@@ -20,7 +20,7 @@ COPY ./.s2i/ /usr/libexec/s2i
 
 RUN mkdir -p /dotnet && chmod 777 /usr/libexec/s2i/*  && chmod 777 /dotnet
 
-RUN curl -O /dotnet.tar.gz ${dotNetInstallFile}
+RUN curl -O /dotnet.tar.gz ${dotnetinstallurl}
 
 RUN tar xzvf /dotnet.tar.gz -C /dotnet
 
