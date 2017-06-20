@@ -14,17 +14,20 @@ LABEL io.k8s.description="S2I for .net core" \
 # Copy the S2I scripts to /usr/libexec/s2i, since openshift/base-centos7 image
 # sets io.openshift.s2i.scripts-url label that way, or update that label
 
-WORKDIR /
 
 COPY ./.s2i/ /usr/libexec/s2i
+
+RUN chmod -r 777 /usr/libexec/s2i/
 
 COPY dotnet-centos-x64.1.1.2.tar.gz /
 
 RUN tar xzvf /dotnet-centos-x64.1.1.2.tar.gz
 
+WORKDIR /
+
 
 # TODO: Drop the root user and make the content of /opt/app-root owned by user 1001
-# RUN chown -R 1001:1001 /opt/app-root
+RUN chown -R 1001:1001 /opt/app-root
 
 # This default user is created in the openshift/base-centos7 image
 USER 1001
