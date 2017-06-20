@@ -20,9 +20,9 @@ COPY ./.s2i/ /usr/libexec/s2i
 
 RUN mkdir -p /dotnet && chmod 777 /usr/libexec/s2i/*  && chmod 777 /dotnet
 
-COPY dotnet-centos-x64.1.1.2.tar.gz /
+RUN curl -O /dotnet.tar.gz ${dotNetInstallFile}
 
-RUN tar xzvf /dotnet-centos-x64.1.1.2.tar.gz -C /dotnet
+RUN tar xzvf /dotnet.tar.gz -C /dotnet
 
 
 WORKDIR /dotnet
