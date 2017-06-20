@@ -8,4 +8,4 @@
 #
 
 cd /dotnet
-exec ./dotnet run
+exec ./dotnet $startdll
