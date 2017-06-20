@@ -17,13 +17,15 @@ LABEL io.k8s.description="S2I for .net core" \
 
 COPY ./.s2i/ /usr/libexec/s2i
 
-RUN chmod 777 /usr/libexec/s2i/*
+
+RUN mkdir -p /dotnet && chmod 777 /usr/libexec/s2i/*  && chmod 777 /dotnet
 
 COPY dotnet-centos-x64.1.1.2.tar.gz /
 
-RUN tar xzvf /dotnet-centos-x64.1.1.2.tar.gz
+RUN tar xzvf /dotnet-centos-x64.1.1.2.tar.gz -C /dotnet
 
-WORKDIR /
+
+WORKDIR /dotnet
 
 
 # TODO: Drop the root user and make the content of /opt/app-root owned by user 1001

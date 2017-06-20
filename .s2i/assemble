@@ -21,7 +21,7 @@ if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
 fi
 
 echo "---> Installing application ..."
-cp -Rf /tmp/src/. ./
+cp -Rf /tmp/src/. ./dotnet
 
 #echo "---> Building application from source..."
 #ansible-playbook /tmp/src/install.yml
