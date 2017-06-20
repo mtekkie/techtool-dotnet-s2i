@@ -16,7 +16,7 @@ LABEL io.k8s.description="S2I for .net core" \
 
 WORKDIR /
 
-COPY ./.s2i/bin/ /usr/libexec/s2i
+COPY ./.s2i/ /usr/libexec/s2i
 
 COPY dotnet-centos-x64.1.1.2.tar.gz /
 
